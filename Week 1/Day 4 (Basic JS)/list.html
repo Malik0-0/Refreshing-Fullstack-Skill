@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="homepage.html">MyPortfolio</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="homepage.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Add Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+  <!-- List Project -->
+  <main class="container my-5">
+    <h1 class="mb-4">Daftar Project</h1>
+    <div class="row" id="projectList"></div>
+  </main>
+
+  <!-- Modal Edit -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <form id="editForm">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="editId">
+            <div class="mb-3">
+              <label class="form-label">Nama Project</label>
+              <input type="text" class="form-control" id="editTitle">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Deskripsi Singkat</label>
+              <input type="text" class="form-control" id="editShortDesc">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Deskripsi Panjang</label>
+              <textarea class="form-control" id="editLongDesc" rows="4"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Link GitHub</label>
+              <input type="text" class="form-control" id="editGithub">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Teknologi</label>
+              <input type="text" class="form-control" id="editTechnologies">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Upload Gambar</label>
+              <input type="file" class="form-control" id="editImages" accept="image/*" multiple>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Connect with me:</p>
+    <div class="social-icons">
+      <a href="https://github.com/Malik0-0" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/malik-alrasyid-basori/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com/malikalrasyidbasori" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2025 Malik Basori</p>
+  </footer>
+
+  <!-- Script Section -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
