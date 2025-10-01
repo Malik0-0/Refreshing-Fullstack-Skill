@@ -1,0 +1,48 @@
+/* Grid for Project List */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body h3 {
+    margin-bottom: 0.5rem;
+    color: #2d3436;
+}
+
+.card-body p {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 1rem;
+}
