@@ -8,27 +8,47 @@ function renderDetail() {
 
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
+
+  // Jika tidak ada ID di URL
+  if (!id) {
+    container.innerHTML = `
+      <div class="alert alert-warning">
+        No project selected. <a href="list.html">Go back to list</a>
+      </div>
+    `;
+    return;
+  }
+
   const project = projects.find(p => p.id === id);
 
+  // Jika project tidak ditemukan
   if (!project) {
-    container.innerHTML = "<p>Project not found</p>";
+    container.innerHTML = `
+      <div class="alert alert-danger">
+        Project not found. <a href="list.html">Back to list</a>
+      </div>
+    `;
     return;
   }
 
   container.innerHTML = `
-    <h1>
-      <a href="${project.github}" target="_blank" class="ms-2" style="text-decoration: none; color: inherit;">
-        <i class="devicon-github-original"></i>
-      </a>
-      ${project.title} 
+    <h1 class="d-flex align-items-center justify-content-between">
+      <span>
+        ${project.title}
+        <a href="${project.github}" target="_blank" class="ms-2" style="text-decoration: none; color: inherit;">
+          <i class="devicon-github-original"></i>
+        </a>
+      </span>
+      <a href="project-list.html" class="btn btn-outline-secondary btn-sm">⬅ Back</a>
     </h1>
+
     <div id="carouselImages" class="carousel slide mb-4">
       <div class="carousel-inner">
         ${project.images.map((img, i) => `
           <div class="carousel-item ${i === 0 ? "active" : ""}">
             <img src="${img}" 
                  class="d-block w-100 rounded"
-                 style="object-fit: cover; height: auto; max-height: 600px;">
+                 style="object-fit: cover; max-height: 600px;">
           </div>
         `).join("")}
       </div>
@@ -39,12 +59,14 @@ function renderDetail() {
         <span class="carousel-control-next-icon"></span>
       </button>
     </div>
+
     <div class="mb-4 d-flex flex-wrap gap-2 justify-content-start">
       ${project.technologies.map(t => `<i class="devicon-${t}-plain colored fs-4"></i>`).join("")}
     </div>
     <p>${project.longDesc}</p>
   `;
 
+  // Event untuk edit & delete
   document.getElementById("deleteBtn")?.addEventListener("click", () => deleteProject(project.id));
   document.querySelector('[data-bs-target="#editModal"]')?.addEventListener("click", () => openEdit(project.id));
 }
