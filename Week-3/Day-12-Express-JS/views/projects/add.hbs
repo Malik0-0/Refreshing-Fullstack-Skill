@@ -1,0 +1,60 @@
+<!-- ======= Add Project Section ======= -->
+<section id="add-project" class="add-project section-show">
+  <div class="container">
+    <div id="toast" class="toast-message"></div>
+
+    <div class="section-title">
+      <h2>Projects</h2>
+      <p>Add New Project</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="project-card">
+          <h3 class="text-center mb-4 text-white">Add Project</h3>
+
+          <form id="projectForm" action="/projects/add" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="title">Project Title</label>
+              <input type="text" id="title" name="title" class="form-control" placeholder="AI-powered Portfolio"
+                required />
+            </div>
+
+            <div class="form-group">
+              <label for="shortDesc">Short Description</label>
+              <input type="text" id="shortDesc" name="shortDesc" class="form-control"
+                placeholder="Short one-line overview" required />
+            </div>
+
+            <div class="form-group">
+              <label for="longDesc">Detailed Description</label>
+              <textarea id="longDesc" name="longDesc" rows="5" class="form-control"
+                placeholder="Explain your project in detail..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="github">GitHub Link</label>
+              <input type="url" id="github" name="github" class="form-control"
+                placeholder="https://github.com/username/project" required />
+            </div>
+
+            <div class="form-group">
+              <label for="technologies">Technologies Used</label>
+              <input type="text" id="technologies" name="technologies" class="form-control"
+                placeholder="React, Node.js, PostgreSQL" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="images" class="form-label">Upload Images</label>
+              <input type="file" id="images" name="images" multiple accept="image/*" class="form-control">
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="bi bi-plus-circle"></i> Add Project
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+/* LIST BASE STYLE */
+
+#projects-list .card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #18d26e;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#projects-list .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #18d26e;
+}
+
+/* ===== Add Project Button (top right) ===== */
+.add-project-btn {
+    border: 1px solid #18d26e;
+    color: #18d26e;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+.add-project-btn:hover {
+    background-color: #18d26e;
+    color: #000;
+    box-shadow: 0 0 10px rgba(24, 210, 110, 0.5);
+    transform: scale(1.03); }
+
+/* MODAL STYLE */
+
+.modal-content {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border: 1px solid #18d26e;
+  box-shadow: 0 0 15px rgba(24, 210, 110, 0.3);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal .btn-primary {
+  background-color: #18d26e;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.modal .btn-primary:hover {
+  background-color: #35e888;
+  transform: scale(1.03);
+}
+
+/* IMAGE PREVIEW STYLE */
+#imagePreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: start;
+}
+
+#imagePreview .preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #18d26e;
+  box-shadow: 0 0 10px rgba(24, 210, 110, 0.3);
+  transition: transform 0.3s ease;
+}
+
+#imagePreview .preview-img:hover {
+  transform: scale(1.05);
+}
+
