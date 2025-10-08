@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
   
-      // Simulate sending process (like email or API)
       setTimeout(() => {
         showToast("Message sent successfully!");
         form.reset();

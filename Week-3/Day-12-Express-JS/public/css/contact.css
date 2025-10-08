@@ -1,0 +1,126 @@
+/* Contact Page (Dark Neon Theme) */
+
+.contact {
+  padding: 100px 0;
+  color: #fff;
+}
+
+.contact .section-title h2 {
+  color: #18d26e;
+}
+
+.contact .contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 50px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact .contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(24, 210, 110, 0.3);
+}
+
+.contact label {
+  color: #ccc;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.contact select.form-select option {
+    background-color: #1a1a1a;
+    color: #fff; }
+
+.contact .form-group {
+  margin-bottom: 20px;
+}
+
+.contact .form-control,
+.contact .form-select,
+.contact textarea {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact .form-control::placeholder,
+.contact textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.contact .form-control:focus,
+.contact .form-select:focus,
+.contact textarea:focus {
+  border-color: #18d26e;
+  box-shadow: 0 0 8px rgba(24, 210, 110, 0.3);
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.contact .btn-submit {
+  background-color: #18d26e;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact .btn-submit:hover {
+  background-color: #35e888;
+  transform: scale(1.02);
+}
+
+.contact .btn-submit:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .contact .contact-card {
+    padding: 25px;
+  }
+}
+
+/* ===== Toast Success Message ===== */
+.toast-message {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background: rgba(24, 210, 110, 0.15);
+    color: #18d26e;
+    border: 1px solid rgba(24, 210, 110, 0.5);
+    box-shadow: 0 0 15px rgba(24, 210, 110, 0.4);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 9999;
+}
+
+.toast-message i {
+    font-size: 18px;
+}
+
+.toast-message.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); }
