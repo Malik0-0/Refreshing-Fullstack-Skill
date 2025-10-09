@@ -33,6 +33,7 @@ app.use(
         cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 1 day
     })
 );
+
 app.use((req, res, next) => {
     res.locals.user = req.session.user; // <-- your line
     next();
