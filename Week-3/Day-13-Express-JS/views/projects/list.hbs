@@ -1,0 +1,112 @@
+<!-- ======= List Project Section ======= -->
+<section id="add-project" class="add-project section-show">
+  <div class="container">
+    <div id="toast" class="toast-message"></div>
+
+    <div class="section-title d-flex justify-content-between align-items-center">
+      <div>
+        <h2>Projects</h2>
+        <p>My Project</p>
+      </div>
+    
+      {{#if user}}
+      <a href="/projects/add" class="btn btn-outline-success add-project-btn ms-auto mb-3">
+        <i class="bi bi-plus-circle"></i> Add Project
+      </a>
+      {{/if}}
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="project-card">
+          {{#if projects.length}}
+          <div class="row">
+            {{#each projects}}
+            <div class="col-md-4 mb-4" data-id="{{this.id}}">
+              <div class="card bg-dark text-light border-success h-100">
+                {{#if this.images.length}}
+                <img src="{{this.images.[0]}}" class="card-img-top" alt="{{this.title}}">
+                {{else}}
+                <img src="/img/placeholder.jpg" class="card-img-top" alt="No image">
+                {{/if}}
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-success">{{this.title}}</h5>
+                  <p class="card-text">{{this.short_desc}}</p>
+                  <p><strong>Tech:</strong> {{this.technologies}}</p>
+                  <a href="{{this.github}}" target="_blank" class="btn btn-outline-success btn-sm">GitHub</a>
+          
+                  {{#if ../user}}
+                  <div class="mt-3 d-flex justify-content-between">
+                    <button class="btn btn-warning btn-sm" onclick="openEdit('{{this.id}}')">
+                      <i class="bi bi-pencil"></i> Edit
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteProject('{{this.id}}')">
+                      <i class="bi bi-trash"></i> Delete
+                    </button>
+                  </div>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+          {{else}}
+          <p class="text-center">No projects yet.</p>
+          {{/if}}
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-success">
+      <form id="editForm" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h5 class="modal-title text-success">Edit Project</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" id="editId">
+
+          <div class="mb-3">
+            <label class="form-label">Nama Project</label>
+            <input type="text" class="form-control" id="editTitle" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Deskripsi Singkat</label>
+            <input type="text" class="form-control" id="editShortDesc" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Deskripsi Panjang</label>
+            <textarea class="form-control" id="editLongDesc" rows="4"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Link GitHub</label>
+            <input type="text" class="form-control" id="editGithub" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Teknologi</label>
+            <input type="text" class="form-control" id="editTechnologies" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Upload Gambar</label>
+            <input type="file" class="form-control" id="editImages" accept="image/*" multiple />
+            <div id="imagePreview" class="d-flex flex-wrap gap-2 mt-3"></div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
