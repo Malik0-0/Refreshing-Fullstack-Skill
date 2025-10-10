@@ -58,5 +58,5 @@ document.getElementById("projectForm")?.addEventListener("submit", async (e) => 
   localStorage.setItem("projects", JSON.stringify(projects));
 
   alert("Project added!");
-  window.location.href = "list.html";
+  window.location.href = "project-list.html";
 });

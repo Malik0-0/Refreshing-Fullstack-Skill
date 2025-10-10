@@ -1,0 +1,32 @@
+<header id="header">
+  <div class="container">
+    <h1><a href="/">Malik Alrasyid Basori</a></h1>
+    <h2 style="text-align: justify; line-height: 2;">
+      I am passionate about <span>AI and Cyber Security</span>.
+      I blend data science, modern web development, and security awareness to
+      <span>build innovative digital experiences</span>.
+    </h2>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link {{#if activeHome}}active{{/if}}" href="/home">Home</a></li>
+        <li><a class="nav-link {{#if activeAbout}}active{{/if}}" href="/home/about">About</a></li>
+        <li><a class="nav-link {{#if activeResume}}active{{/if}}" href="/home/resume">Resume</a></li>
+        <li><a class="nav-link {{#if activeProjects}}active{{/if}}" href="/projects">Projects</a></li>
+        <li><a class="nav-link {{#if activeContact}}active{{/if}}" href="/contact">Contact</a></li>
+        {{#if user}}
+        <li><a href="/auth/logout" class="nav-link">Logout ({{user.username}})</a></li>
+        {{else}}
+        <li><a href="/auth/login" class="nav-link">Admin Login</a></li>
+        {{/if}}
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+    <div class="social-links">
+      <a href="https://github.com/Malik0-0" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@malikalrasyidbasori.1" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://www.linkedin.com/in/malik-alrasyid-basori/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</header>
