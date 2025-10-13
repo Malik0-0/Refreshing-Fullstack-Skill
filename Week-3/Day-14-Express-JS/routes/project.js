@@ -29,6 +29,29 @@ function deleteImages(imageArray) {
   });
 }
 
+// Project Detail
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query("SELECT * FROM projects WHERE id = $1", [id]);
+    if (result.rowCount === 0) return res.status(404).send("Project not found");
+
+    const project = result.rows[0];
+    project.images = project.images || [];
+
+    res.render("projects/detail", {
+      layout: "layouts/base",
+      project,
+      user: req.session.user,
+      projectDetail: true,
+    });
+  } catch (err) {
+    console.error("Error fetching project detail:", err);
+    res.status(500).send("Server error");
+  }
+});
+
+
 // List all projects
 router.get("/", async (req, res) => {
   try {
@@ -55,6 +78,24 @@ router.get("/add", isAuthenticated, (req, res) => {
     projectPage: true
   });
 });
+
+// GET project data (for edit modal)
+router.get("/api/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query("SELECT * FROM projects WHERE id = $1", [id]);
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ success: false, message: "Project not found" });
+    }
+
+    res.json({ success: true, project: result.rows[0] });
+  } catch (err) {
+    console.error("❌ Error fetching project data:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
 
 // Form submission
 router.post("/add", isAuthenticated, upload.array("images", 5), async (req, res) => {

@@ -21,32 +21,34 @@
           {{#if projects.length}}
           <div class="row">
             {{#each projects}}
-            <div class="col-md-4 mb-4" data-id="{{this.id}}">
-              <div class="card bg-dark text-light border-success h-100">
-                {{#if this.images.length}}
-                <img src="{{this.images.[0]}}" class="card-img-top" alt="{{this.title}}">
-                {{else}}
-                <img src="/img/placeholder.jpg" class="card-img-top" alt="No image">
-                {{/if}}
-                <div class="card-body d-flex flex-column">
-                  <h5 class="card-title text-success">{{this.title}}</h5>
-                  <p class="card-text">{{this.short_desc}}</p>
-                  <p><strong>Tech:</strong> {{this.technologies}}</p>
-                  <a href="{{this.github}}" target="_blank" class="btn btn-outline-success btn-sm">GitHub</a>
-          
-                  {{#if ../user}}
-                  <div class="mt-3 d-flex justify-content-between">
-                    <button class="btn btn-warning btn-sm" onclick="openEdit('{{this.id}}')">
-                      <i class="bi bi-pencil"></i> Edit
-                    </button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteProject('{{this.id}}')">
-                      <i class="bi bi-trash"></i> Delete
-                    </button>
-                  </div>
+              <div class="col-md-4 mb-4" data-id="{{this.id}}">
+              <a href="/projects/{{this.id}}" class="text-decoration-none text-light">
+                <div class="card bg-dark text-light border-success h-100">
+                  {{#if this.images.length}}
+                  <img src="{{this.images.[0]}}" class="card-img-top" alt="{{this.title}}">
+                  {{else}}
+                  <img src="/img/placeholder.jpg" class="card-img-top" alt="No image">
                   {{/if}}
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-success">{{this.title}}</h5>
+                    <p class="card-text">{{this.short_desc}}</p>
+                    <p><strong>Tech:</strong> {{this.technologies}}</p>
+                    <a href="{{this.github}}" target="_blank" class="btn btn-outline-success btn-sm"><i class="devicon-github-original"></i></a>
+            
+                    {{#if ../user}}
+                    <div class="mt-3 d-flex justify-content-between">
+                      <button class="btn btn-warning btn-sm" onclick="openEdit('{{this.id}}'); event.stopPropagation();">
+                        <i class="bi bi-pencil"></i> Edit
+                      </button>
+                      <button class="btn btn-danger btn-sm" onclick="deleteProject('{{this.id}}'); event.stopPropagation();">
+                        <i class="bi bi-trash"></i> Delete
+                      </button>
+                    </div>
+                    {{/if}}
+                  </div>
                 </div>
+              </a>
               </div>
-            </div>
             {{/each}}
           </div>
           {{else}}

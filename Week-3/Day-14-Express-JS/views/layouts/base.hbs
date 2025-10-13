@@ -15,6 +15,7 @@
     rel="stylesheet" />
 
   <!-- Vendor CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
@@ -33,6 +34,11 @@
   {{#if contactPage}}
   <link rel="stylesheet" href="/css/contact.css" />
   {{/if}}
+
+  {{#if projectDetail}}
+  <link rel="stylesheet" href="/css/project-detail.css" />
+  {{/if}}
+
 
   {{#if projectListPage}}
   <link rel="stylesheet" href="/css/project-list.css" />
@@ -82,6 +88,11 @@
   {{#if projectListPage}}
   <script src="/js/project-list.js"></script>
   {{/if}}
+
+  {{#if projectDetail}}
+  <script src="/js/project-detail.js"></script>
+  {{/if}}
+
 
 </body>
 

@@ -1,5 +1,18 @@
-// ========================== PROJECT LIST HANDLERS ========================== //
-
+document.addEventListener("DOMContentLoaded", function () {
+  new Swiper(".portfolio-details-slider", {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+  });
+});
 // Set field value
 function setValue(id, value) {
   const el = document.getElementById(id);
@@ -47,26 +60,6 @@ window.openEdit = async function (id) {
   }
 };
 
-
-// Delete project
-window.deleteProject = async function (id) {
-  if (!confirm("Are you sure you want to delete this project?")) return;
-
-  try {
-    const res = await fetch(`/projects/delete/${id}`, { method: "POST" });
-    const result = await res.json();
-    if (result.success) {
-      alert("Project deleted!");
-      window.location.reload();
-    } else {
-      alert("Failed to delete project!");
-    }
-  } catch (err) {
-    console.error("Error deleting project:", err);
-    alert("Server error!");
-  }
-};
-
 // Submit edit form
 document.getElementById("editForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -110,3 +103,22 @@ document.getElementById("editForm")?.addEventListener("submit", async (e) => {
     alert("Server error while updating project!");
   }
 });
+
+// Delete project
+window.deleteProject = async function (id) {
+  if (!confirm("Are you sure you want to delete this project?")) return;
+
+  try {
+    const res = await fetch(`/projects/delete/${id}`, { method: "POST" });
+    const result = await res.json();
+    if (result.success) {
+      alert("Project deleted!");
+      window.location.href = "/projects";
+    } else {
+      alert("Failed to delete project!");
+    }
+  } catch (err) {
+    console.error("Error deleting project:", err);
+    alert("Server error!");
+  }
+};
